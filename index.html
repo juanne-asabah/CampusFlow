@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>CampusFlow</title>
+  </head>
+  <body>
+    <a href="#main-content">Skip to main content</a>
+    <header>
+      <h1>CampusFlow; organise your tasks and campus events</h1>
+    </header>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
+    <main id="main-content">
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          CampusFlow is a student friendly app. Organise your academic tasks and
+          campus events all in one place!!
+        </p>
+        <a href="https://github.com/juanne-asabah">Github profile</a>
+        <a href="mailto:j.asabah@alustudent.com">Email me</a>
+      </section>
+      <section id="dashboard">
+        <h2>Dashboard</h2>
+        <div>
+          <h3>Total records</h3>
+          <p>0</p>
+        </div>
+        <div>
+          <h3>Total duration</h3>
+          <p>0</p>
+        </div>
+        <div>
+          <h3>Top tag</h3>
+          <p>0</p>
+        </div>
+        <div>
+          <h3>Upcoming</h3>
+          <p>0</p>
+        </div>
+        <div>
+          <h3>Last 7-day activity</h3>
+          <p>0</p>
+        </div>
+        <div>
+          <h3>Target progress</h3>
+          <p>0</p>
+        </div>
+      </section>
+      <section id="records">
+        <h2>Records</h2>
+        <div>
+          <label for="search">Search records</label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            aria-describedby="search-error"
+          />
+          <output aria-live="polite" id="search-error"></output>
+        </div>
+        <div>
+          <label for="csi">Case-insensitive search</label>
+          <input type="checkbox" id="csi" name="csi" />
+        </div>
+        <div>
+          <label for="sort-select">Sort records by:</label>
+          <select id="sort-select" name="sort">
+            <option value="due-date">Due date</option>
+            <option value="title-asc">Title A-Z</option>
+            <option value="title-desc">Title Z-A</option>
+            <option value="duration-asc">Duration Asc.</option>
+            <option value="duration-desc">Duration Desc.</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter">Filter</label>
+          <select id="filter" name="filter">
+            <option value="all-tags">All tags</option>
+            <option value="academic">Academic</option>
+            <option value="events">Events</option>
+            <option value="personal">Personal</option>
+            <option value="community">Community</option>
+          </select>
+        </div>
+
+        <div>
+          <p role="status" id="match-count"></p>
+          <ul>
+            <li>
+              <article>
+                <div>
+                  <h3>Record title</h3>
+                  <p>0</p>
+                </div>
+                <div>
+                  <h3>Tag type</h3>
+                  <p>0</p>
+                </div>
+                <div>
+                  <h3>Due date</h3>
+                  <p>0</p>
+                </div>
+                <div>
+                  <h3>Duration</h3>
+                  <p>0</p>
+                </div>
+                <div>
+                  <button>Edit</button>
+                </div>
+                <div>
+                  <button>Delete</button>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <p id="empty-message">
+            No records found. Add a task or event to get started!
+          </p>
+        </div>
+      </section>
+      <section id="forms">
+        <h2>Add or Edit record</h2>
+        <form id="form" novalidate>
+          <input type="hidden" id="records-id" name="records-id" />
+          <div class="form-group">
+            <label for="record-title">Record title</label>
+            <input
+              type="text"
+              id="record-title"
+              name="record-title"
+              aria-describedby="title-error"
+              required
+            />
+            <output
+              id="title-error"
+              aria-live="assertive"
+              class="error-message"
+            ></output>
+          </div>
+
+          <div class="form-group">
+            <label for="record-date">Record date</label>
+            <input
+              type="date"
+              id="record-date"
+              name="record-date"
+              aria-describedby="date-error"
+              required
+            />
+            <output
+              id="date-error"
+              aria-live="assertive"
+              class="error-message"
+            ></output>
+          </div>
+
+          <div class="form-group">
+            <label for="custom-tag">Custom tag</label>
+            <input
+              type="text"
+              id="custom-tag"
+              name="custom-tag"
+              aria-describedby="customtag-error"
+            />
+            <output
+              id="customtag-error"
+              aria-live="assertive"
+              class="error-message"
+            ></output>
+          </div>
+
+          <div class="form-group">
+            <label for="record-tag">Record category</label>
+            <select
+              id="record-tag"
+              name="record-tag"
+              aria-describedby="tag-error"
+              required
+            >
+              <option value="">Choose a tag</option>
+              <option value="academic">Academic</option>
+              <option value="events">Events</option>
+              <option value="personal">Personal</option>
+              <option value="community">Community</option>
+            </select>
+            <output
+              id="tag-error"
+              aria-live="assertive"
+              class="error-message"
+            ></output>
+          </div>
+
+          <div class="form-group">
+            <label for="record-duration">Record duration</label>
+            <input
+              type="text"
+              inputmode="decimal"
+              id="record-duration"
+              name="record-duration"
+              aria-describedby="duration-error"
+              required
+            />
+            <output
+              id="duration-error"
+              aria-live="assertive"
+              class="error-message"
+            ></output>
+          </div>
+
+          <button type="submit">Save record</button>
+          <button type="reset">Cancel record</button>
+        </form>
+      </section>
+      <section id="settings">
+        <h2>Settings</h2>
+        <p>Set a target duration, manage your data.</p>
+        <label for="duration-target">Duration target(mins)</label>
+        <input
+          type="number"
+          id="duration-target"
+          name="duration-target"
+          value="300"
+          min="0"
+        />
+        <p id="target-message" aria-live="assertive"></p>
+        <label for="unit-display">Unit display</label>
+        <select id="unit-display" name="unit-display">
+          <option value="hours">Hours</option>
+          <option value="minutes">Minutes</option>
+        </select>
+
+        <h3>Import records</h3>
+        <label for="import-records">Choose a JSON file to import</label>
+        <input
+          type="file"
+          id="import-records"
+          name="import-records"
+          accept=".json"
+          aria-describedby="file-typeimport import-error"
+        />
+        <output id="import-error" aria-live="polite"></output>
+        <p id="file-typeimport">Import a JSON file</p>
+
+        <h3>Export records</h3>
+        <button type="button" id="file-typeexport">
+          Export records as a JSON file
+        </button>
+      </section>
+    </main>
+    <footer>
+      <p>Juanne Asabah, Summative project</p>
+    </footer>
+  </body>
+</html>
