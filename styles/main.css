@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background: whitesmoke;
+    margin: 0;
+    font-family: system-ui;
+    color: black; 
+
+}
+
+main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.skip {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 100;
+}
+
+.skip:focus {
+    left: 1rem;
+    top: 1rem;
+    background-color: royalblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select{
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid grey;
+}
+
+button {
+    padding: 0.75rem;
+    background: darkslateblue;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
