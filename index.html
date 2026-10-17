@@ -9,7 +9,7 @@
   <body>
     <a href="#main-content" class="skip">Skip to main content</a>
     <header>
-      <h1>CampusFlow; organise your tasks and campus events</h1>
+      <h1>CampusFlow;organise your tasks and campus events</h1>
     </header>
     <nav aria-label="Main">
       <ul>
@@ -25,7 +25,7 @@
         <h2>About</h2>
         <p>
           CampusFlow is a student friendly app. Organise your academic tasks and
-          campus events all in one place!!
+          campus events all in one place.
         </p>
         <a href="https://github.com/juanne-asabah">Github profile</a>
         <a href="mailto:j.asabah@alustudent.com">Email me</a>
@@ -73,7 +73,7 @@
             <output aria-live="polite" id="search-error"></output>
           </div>
           <div>
-            <label for="csi">Case-insensitive search</label>
+            <label for="csi">case-insensitive search</label>
             <input type="checkbox" id="csi" name="csi" />
           </div>
           <div>
@@ -100,41 +100,14 @@
 
         <div>
           <p role="status" id="match-count"></p>
-          <ul id="records">
-            <li>
-              <article class="record-article">
-                <div>
-                  <h3>Record title</h3>
-                  <p>0</p>
-                </div>
-                <div>
-                  <h3>Tag type</h3>
-                  <p>0</p>
-                </div>
-                <div>
-                  <h3>Due date</h3>
-                  <p>0</p>
-                </div>
-                <div>
-                  <h3>Duration</h3>
-                  <p>0</p>
-                </div>
-                <div>
-                  <button>Edit</button>
-                </div>
-                <div>
-                  <button class="delete">Delete</button>
-                </div>
-              </article>
-            </li>
-          </ul>
+          <ul id="records"></ul>
           <p id="empty-message">
-            No records found. Add a task or event to get started!
+            No records found. Add a task/event to get started.
           </p>
         </div>
       </section>
       <section id="forms">
-        <h2>Add or Edit record</h2>
+        <h2>Add/Edit record</h2>
         <form id="form" novalidate>
           <input type="hidden" id="records-id" name="records-id" />
           <div class="form-group">
@@ -192,7 +165,7 @@
               aria-describedby="tag-error"
               required
             >
-              <option value="">Choose a tag</option>
+              <option value="">Choose tag</option>
               <option value="academic">Academic</option>
               <option value="events">Events</option>
               <option value="personal">Personal</option>
@@ -237,7 +210,7 @@
           value="300"
           min="0"
         />
-        <p id="target-message" aria-live="assertive"></p>
+        <p id="target-message" role="status" aria-live="polite"></p>
         <label for="unit-display">Unit display</label>
         <select id="unit-display" name="unit-display">
           <option value="hours">Hours</option>
